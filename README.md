@@ -1,3 +1,29 @@
+# Optimizations
+## Global
+* Condensed all images,JS, and CSS files into common folder structure
+* Minimized/inlined all CSS files
+
+## index.html
+
+* Optimized pizzaria.jpg (reduced size)
+* Made Google analytics run Async
+* Made print.CSS run Async
+* removed google fonts look up
+
+## pizza.html
+
+* Optimized pizzaria.jpg (reduced size)
+
+## main.js
+
+* reworked the resizePizza flow to elimate excess delays in pizza resize
+* see main.js for comments (min version had comments removed)
+
+https://github.com/mbrockway4
+
+
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
