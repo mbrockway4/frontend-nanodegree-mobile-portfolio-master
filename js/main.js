@@ -424,6 +424,7 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
   changePizzaSizes(size)
 var widthx;    
+//width is now determined upon Pizza resize
 function changePizzaSizes(size) {
     
     switch(size) {
@@ -439,7 +440,7 @@ function changePizzaSizes(size) {
       default:
         console.log("bug in sizeSwitcher");
     }
-
+    //moved variable declaration outside for loop for efficency
     var randomPizza = document.getElementsByClassName("randomPizzaContainer");
     for (var i = 0; i < randomPizza.length; i++) {
 
@@ -516,16 +517,40 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
+
+  //find height of screen
+  var IH = top.innerHeight;
+
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var row = 0;
+
+
+
+  for (var i = 0; i < 100; i++) {
+    //check to see if height is below the fold, break if not visisble on load.
+    if(row <IH){
+     
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
+    row = (Math.floor(i / cols) * s)
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    }
+    else
+    {
+      break;
+    }
+
+
     document.querySelector("#movingPizzas1").appendChild(elem);
+   
   }
+     
+  
+
+
   updatePositions();
 });
